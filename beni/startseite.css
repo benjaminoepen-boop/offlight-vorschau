@@ -1,0 +1,754 @@
+/* OFF LIGHT Startseite */
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("schrift/hanken-grotesk-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --nacht: #1d1612;            /* Grund, wie der Fotohintergrund */
+  --nacht-text: #ece4d7;
+  --nacht-leise: #a89a8b;
+  --creme: #f4efe6;            /* heller Knopf */
+  --tinte: #221a15;
+  --bernstein: #eea04a;        /* nur wenn die Kerze brennt */
+  --kaltlicht: #a9c8f5;        /* nur wo ein Handy leuchtet */
+
+  --schrift: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+
+  --rand: 48px;                /* Abstand zum Fensterrand */
+  --breite: min(100vw - 2 * var(--rand), 1344px);
+  --kopf: 76px;
+  --r-modul: 14px;
+  --r-tafel: 24px;
+  --r-knopf: 8px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--nacht);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  scrollbar-color: rgba(236, 228, 215, .28) var(--nacht);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--nacht);
+  color: var(--nacht-text);
+  font: 400 18px/1.5 var(--schrift);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+}
+
+::selection { background: var(--nacht-text); color: var(--nacht); }
+:focus-visible { outline: 2px solid var(--nacht-text); outline-offset: 3px; }
+
+h1, h2, p { margin: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; }
+
+.nur-vorlesen {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Kopf: nur der Name oben links */
+.kopf {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: var(--kopf);
+  width: var(--breite);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.marke {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .22em;
+  line-height: 1;
+  text-decoration: none;
+  padding: 14.5px 0;
+}
+
+/* Knöpfe: weder Kapsel noch Kasten.
+   Hover gibt es nur mit Maus oder Trackpad (hover: hover); auf dem Handy bliebe er sonst
+   am zuletzt angetippten Element hängen. */
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: var(--r-knopf);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: .005em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.knopf:active { transform: translateY(1px); }
+.knopf-hell { background: var(--creme); color: var(--tinte); }
+@media (hover: hover) { .knopf-hell:hover { background: #fffaf2; } }
+
+/* Einstieg: nur die Box, der Satz und der Preis */
+.einstieg {
+  /* Die Bühne ist so groß, dass Box, Satz und Preis genau in ein Fenster passen.
+     Der Satz darf in den leeren Boden unter der Box ragen (9 % der Bühne). */
+  --claim: clamp(40px, 4.4vw, 68px);
+  --fuss-unten: 44px;
+  --fuss: calc(var(--claim) * 2.04 + var(--fuss-unten));
+  --s: min(100vw - 2 * var(--rand), (max(100svh, 340px) - 24px - var(--fuss)) / .91, 940px);
+  position: relative;
+  height: 100svh;
+  min-height: 340px;
+  display: grid;
+  grid-template-rows: 24px minmax(0, 1fr) auto;
+  justify-items: center;
+}
+
+.buehne {
+  position: relative;
+  aspect-ratio: 1;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--nacht);
+}
+.buehne img, .buehne .schatten {
+  position: absolute;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transform-origin: 0 0;
+  will-change: transform, opacity;
+}
+.buehne .licht { mix-blend-mode: plus-lighter; }
+@supports not (mix-blend-mode: plus-lighter) { .buehne .licht { mix-blend-mode: screen; } }
+.buehne .schatten.kerze { background: radial-gradient(closest-side, rgba(0, 0, 0, .5) 80%, rgba(0, 0, 0, 0) 100%); }
+.buehne-einstieg {
+  grid-row: 2;
+  align-self: center;
+  justify-self: start;
+  width: var(--s);
+  margin-inline: calc((100% - var(--s)) / 2); /* mittig, auch wenn breiter als das Fenster */
+  aspect-ratio: 1;
+  border-radius: var(--r-modul);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.buehne-einstieg:focus { outline: none; }
+.buehne-einstieg:focus-visible { outline: 2px solid rgba(236, 228, 215, .6); outline-offset: -2px; }
+.buehne-einstieg .buehne {
+  width: 100%;
+  background: none;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 7%, #000 88%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to right, transparent 0, #000 10%, #000 90%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 7%, #000 88%, transparent 100%);
+          mask-composite: intersect;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.buehne-einstieg .buehne.bereit { opacity: 1; }
+.buehne .standbild { inset: 0; width: 100%; height: 100%; }
+
+/* Satz unten links, Preis und Vormerken unten rechts, wie auf einer Produktseite */
+.einstieg-fuss {
+  grid-row: 3;
+  position: relative;
+  width: var(--breite);
+  margin-top: calc(var(--s) * -.09);
+  padding-bottom: var(--fuss-unten);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  pointer-events: none;
+}
+.einstieg-fuss > * { pointer-events: auto; }
+.claim {
+  margin-left: -.05em; /* das P bringt eigenen Vorlauf mit, so steht es optisch unter OFF LIGHT */
+  font-size: var(--claim);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -.028em;
+}
+.claim .an {
+  color: color-mix(in oklab, var(--bernstein) calc(var(--licht, 1) * 100%), var(--nacht-text));
+}
+.kauf {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-bottom: 4px;
+}
+.kauf-preis {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 20px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--nacht-text);
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .kauf-preis:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+}
+
+/* Wofür: vor der Erklärung */
+/* Am Desktop gleitet die eigene Feder (startseite.js), das weiche Browser-Scrollen würde dagegen arbeiten */
+@media (pointer: fine) and (min-width: 761px) and (min-height: 560px) {
+  html { scroll-behavior: auto; }
+}
+#produkt:focus, #oben:focus { outline: none; }
+
+/* Jeder Abschnitt füllt genau einen Bildschirm, der Inhalt steht mittig.
+   Das Einrasten macht startseite.js mit einer Schwelle (CSS-Einrasten war zu empfindlich bzw. zu lose). */
+.wofuer, .anleitung, .produkt { min-height: 100svh; }
+
+.wofuer {
+  width: var(--breite);
+  margin: 0 auto;
+  display: grid;
+  /* das quadratische Bild samt Regler passt immer auf einen Bildschirm */
+  grid-template-columns: minmax(0, 1fr) min(58.33%, max(100svh - 180px, 300px));
+  gap: clamp(28px, 4vw, 72px);
+  align-items: center;
+  align-content: center;
+  padding: 48px 0;
+}
+.wofuer h2 {
+  margin-left: -.05em; /* optisch unter OFF LIGHT */
+  max-width: 11em;
+  font-size: clamp(34px, 3.8vw, 58px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -.026em;
+  text-wrap: balance;
+}
+
+/* Drei Momente, je ein Bildpaar; der Regler blendet vom Handylicht zum Kerzenlicht */
+.moment-tabs { display: flex; flex-direction: column; gap: 12px; max-width: 420px; margin-top: clamp(24px, 3vw, 40px); }
+.moment-tab {
+  min-height: 56px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(236, 228, 215, .065);
+  color: var(--nacht-leise);
+  text-align: left;
+  font-size: clamp(18px, 1.6vw, 21px);
+  font-weight: 500;
+  letter-spacing: -.01em;
+  transition: background-color .3s ease, color .3s ease;
+}
+@media (hover: hover) { .moment-tab:hover { background: rgba(236, 228, 215, .1); color: var(--nacht-text); } }
+.moment-tab[aria-selected="true"] { background: rgba(236, 228, 215, .12); color: var(--nacht-text); }
+
+.moment-bild { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; background: #120d0a; }
+.moment-szene { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; }
+.moment-szene.sichtbar { opacity: 1; }
+.moment-szene img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+.moment-szene .m-kerze { opacity: var(--kerze, 0); }
+
+/* Schieber wie beim Annehmen eines Anrufs: breite Spur, runder Knopf, Hinweis in der Spur.
+   Links kaltes Handylicht mit Handy-Symbol, rechts Bernstein mit Flamme; die Szene folgt. */
+.regler { margin-top: 16px; container-type: inline-size; }
+.regler-spur {
+  /* Farbe und Symbol schlagen in der Mitte um (kurz überblendet), nie ein blasser Mischton */
+  --warm: clamp(0, (var(--kerze, 0) - .5) * 10000, 1);
+  position: relative;
+  height: 64px;
+  border-radius: 32px;
+  background: rgba(236, 228, 215, .07);
+  box-shadow: inset 0 0 0 1px rgba(236, 228, 215, .1);
+  overflow: hidden;
+  cursor: pointer;
+  touch-action: pan-y; /* senkrecht scrollt die Seite, waagerecht zieht der Schieber */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.regler-fuellung {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: calc(64px + (100% - 64px) * var(--kerze, 0));
+  border-radius: 32px;
+  background: var(--bernstein);
+  opacity: .18;
+}
+.regler-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding-left: 58px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  opacity: calc(1 - var(--kerze, 0) * 2.5);
+  pointer-events: none;
+}
+/* leichtes Schimmern wie beim Handy, nur als Hinweis */
+.regler-text span {
+  background: linear-gradient(90deg, var(--nacht-leise) 0%, var(--nacht-leise) 38%, var(--nacht-text) 50%, var(--nacht-leise) 62%, var(--nacht-leise) 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  animation: schimmern 3.2s linear infinite;
+}
+.regler-text span { white-space: nowrap; }
+@container (max-width: 320px) { .regler-text { font-size: 14px; } }
+@container (max-width: 250px) { .regler-text { display: none; } }
+@keyframes schimmern { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+.regler-griff {
+  position: absolute;
+  top: 6px;
+  left: calc(6px + (100% - 64px) * var(--kerze, 0));
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--kaltlicht);
+  color: #1d1612;
+  cursor: grab;
+  outline: none;
+  isolation: isolate;
+}
+.regler-griff::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: var(--bernstein); opacity: var(--warm); transition: opacity .18s ease; }
+.regler-spur.zieht .regler-griff { cursor: grabbing; }
+.regler-griff:focus-visible { outline: 2px solid transparent; outline-offset: 2px; box-shadow: 0 0 0 2px var(--nacht), 0 0 0 4px var(--nacht-text); }
+.regler-griff svg { position: absolute; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.regler-griff .ikon-handy { opacity: calc(1 - var(--warm)); transition: opacity .18s ease; }
+.regler-griff .ikon-flamme { opacity: var(--warm); transition: opacity .18s ease; }
+
+.anleitung { width: var(--breite); margin: 0 auto; display: grid; align-content: center; padding: 48px 0; }
+
+/* So geht’s: dunkle Tafel, etwas heller als der Grund; das Bild füllt rechts die Tafel bis an den Rand.
+   Die Schritte klappen einzeln per Klick auf, nichts läuft von selbst weiter. */
+.modul-schritte {
+  --tafel: #2a211b;
+  --feld: rgba(236, 228, 215, .065);
+  --feld-offen: rgba(236, 228, 215, .1);
+  position: relative;
+  display: grid;
+  /* das quadratische Bild höchstens so groß, dass die Tafel ganz auf den Bildschirm passt */
+  grid-template-columns: minmax(0, 1fr) min(58.33%, 100svh - 96px);
+  align-items: center;
+  background: var(--tafel);
+  border-radius: var(--r-tafel);
+  box-shadow: inset 0 0 0 1px rgba(236, 228, 215, .07);
+  overflow: hidden;
+  isolation: isolate;
+}
+.schritte-steuerung { padding: clamp(28px, 4vw, 64px); padding-right: clamp(20px, 3vw, 48px); }
+.modul-titel {
+  margin: 0 0 clamp(20px, 2.4vw, 32px) -.04em;
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.schritte-rahmen { position: relative; }
+.schritte { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+
+.schritt {
+  position: relative;
+  max-width: 100%;
+  background: var(--feld);
+  overflow: hidden;
+  transition: background-color .3s ease;
+}
+@media (hover: hover) { .schritt:hover { background: var(--feld-offen); } }
+.schritt.offen { background: var(--feld-offen); }
+.schritt:has(.schritt-kopf:focus-visible) { outline: 2px solid var(--nacht-text); outline-offset: 2px; }
+.schritt-kopf {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 24px 14px 14px;
+  text-align: left;
+  font-size: clamp(18px, 1.6vw, 21px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+  color: var(--nacht-text);
+}
+.schritt-kopf:focus-visible { outline: none; }
+.schritt.offen .schritt-kopf { font-weight: 600; cursor: default; }
+.schritt-zeichen { position: relative; flex: none; width: 28px; height: 28px; display: grid; place-items: center; }
+.schritt-zeichen svg { position: absolute; inset: 0; width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; transition: transform .35s ease, opacity .25s ease; }
+.schritt-nr { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.schritt-text { display: none; padding: 0 26px 22px 56px; }
+.schritt-text p { max-width: 34em; font-size: 17px; line-height: 1.5; color: #b8ab9b; }
+.schritt.offen .schritt-text { display: block; animation: text-ein .45s .12s both cubic-bezier(.2, .8, .2, 1); }
+@keyframes text-ein { from { opacity: 0; transform: translateY(6px); } }
+
+/* Karten in voller Breite, Nummer im Kreis, feine Laufzeitlinie im offenen Schritt (Benis Wahl, 28.09.) */
+.schritt { width: 100%; border-radius: 14px; }
+.schritt-zeichen svg circle { stroke-opacity: .45; }
+.schritt.offen .schritt-zeichen svg circle { stroke-opacity: 1; }
+.schritt-fortschritt {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--nacht-text);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.schritt-fortschritt { transition: opacity .5s ease .2s; }
+.schritt.offen.laeuft .schritt-fortschritt { opacity: .55; transition: none; animation: lauf var(--dauer, 3s) linear forwards; }
+.schritt.offen:not(.laeuft) .schritt-fortschritt { transform: scaleX(1); } /* fertig: Linie blendet aus */
+@keyframes lauf { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Bühne rechts bis an den Tafelrand, nach links weich in die Tafel */
+.buehne-schritte {
+  width: 100%;
+  background: none;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 14%),
+    linear-gradient(to bottom, transparent 0, #000 5%, #000 93%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to right, transparent 0, #000 14%),
+    linear-gradient(to bottom, transparent 0, #000 5%, #000 93%, transparent 100%);
+          mask-composite: intersect;
+}
+
+/* Produkt mit Farbwahl: ohne Tafel, auf dem Grund des Fotos, die Kerze brennt */
+.produkt {
+  width: var(--breite);
+  margin: 0 auto;
+  padding: 48px 0;
+  display: grid;
+  align-content: center;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(24px, 4vw, 72px);
+  align-items: center;
+}
+.produkt-buehne {
+  position: relative;
+  width: min(100%, (100svh - 96px) * 1.5);
+  justify-self: center;
+  aspect-ratio: 1254 / 836;
+  /* Ellipse für runde Ecken (die Box liegt ganz im deckenden Kern), dazu gerade Verläufe an den Rändern */
+  -webkit-mask-image:
+    radial-gradient(ellipse 58% 62% at 50% 52%, #000 87%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 12%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in, source-in;
+          mask-image:
+    radial-gradient(ellipse 58% 62% at 50% 52%, #000 87%, transparent 100%),
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 12%, #000 90%, transparent 100%);
+          mask-composite: intersect, intersect;
+}
+.produkt-licht { position: absolute; inset: 0; opacity: 0; }
+.produkt-szene { position: absolute; inset: 0; isolation: isolate; }
+.produkt-szene img {
+  position: absolute;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  transform-origin: 0 0;
+  will-change: transform, opacity;
+}
+.produkt-szene .p-aus, .produkt-szene .p-schein { inset: 0; width: 100%; height: 100%; }
+.produkt-szene .licht { mix-blend-mode: plus-lighter; }
+@supports not (mix-blend-mode: plus-lighter) { .produkt-szene .licht { mix-blend-mode: screen; } }
+
+.produkt-angaben { min-width: 0; }
+.produkt-angaben h2 {
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 600;
+  letter-spacing: .14em;
+  line-height: 1.1;
+}
+.produkt-zeile { margin-top: 8px; font-size: 18px; color: var(--nacht-leise); }
+
+.farbwahl { margin-top: clamp(28px, 3vw, 40px); }
+.farbwahl-titel { font-size: 16px; color: var(--nacht-leise); }
+.farbwahl-titel span { margin-left: 6px; color: var(--nacht-text); font-weight: 600; }
+.farben { display: flex; gap: 12px; margin-top: 12px; }
+.farbe {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--muster);
+  box-shadow: inset 0 0 0 1px rgba(236, 228, 215, .3);
+  transition: box-shadow .2s ease;
+}
+.farbe::before { content: ""; position: absolute; inset: -4px; } /* Trefferfläche 44 px */
+@media (hover: hover) { .farbe:hover { box-shadow: inset 0 0 0 1px rgba(236, 228, 215, .3), 0 0 0 2px var(--nacht), 0 0 0 3px rgba(236, 228, 215, .4); } }
+.farbe[aria-checked="true"] { box-shadow: inset 0 0 0 1px rgba(236, 228, 215, .3), 0 0 0 2px var(--nacht), 0 0 0 3.5px var(--nacht-text); }
+/* Farben ohne Bild: Fläche etwas zurückgenommen, Rand bleibt, damit das Feld erkennbar ist */
+.farbe[aria-disabled="true"] { background: color-mix(in oklab, var(--muster) 55%, var(--nacht)); cursor: default; }
+@media (hover: hover) { .farbe[aria-disabled="true"]:hover { box-shadow: inset 0 0 0 1px rgba(236, 228, 215, .3); } }
+.farbe:focus-visible { outline-offset: 6px; }
+
+.produkt-preis {
+  margin-top: clamp(28px, 3vw, 40px);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  font-variant-numeric: tabular-nums;
+}
+.produkt-hinweis { margin-top: 6px; font-size: 16px; color: var(--nacht-leise); text-wrap: pretty; }
+
+.vormerken {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  margin-top: 22px;
+}
+.feld {
+  min-width: 0;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(236, 228, 215, .42);
+  border-radius: var(--r-knopf);
+  background: rgba(236, 228, 215, .05);
+  color: var(--nacht-text);
+  font: inherit;
+  font-size: 17px;
+  caret-color: var(--nacht-text);
+  transition: border-color .2s ease;
+}
+.feld:-webkit-autofill, .feld:-webkit-autofill:hover, .feld:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--nacht-text);
+  -webkit-box-shadow: 0 0 0 1000px #28201b inset;
+  caret-color: var(--nacht-text);
+  transition: background-color 9999s ease-out 0s;
+}
+.feld::placeholder { color: var(--nacht-leise); opacity: 1; }
+@media (hover: hover) { .feld:hover { border-color: rgba(236, 228, 215, .65); } }
+.feld:focus-visible { outline: 2px solid var(--nacht-text); outline-offset: 0; border-color: var(--nacht-text); }
+.feld[aria-invalid="true"] { border-color: #f09b8b; }
+.vormerken-meldung {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 10px;
+  font-size: 16px;
+  color: var(--nacht-leise);
+}
+.vormerken-meldung:empty { display: none; }
+.vormerken-meldung:focus { outline: none; }
+.vormerken-meldung.fehler { color: #f09b8b; }
+.vormerken.fertig .feld, .vormerken.fertig .knopf { visibility: hidden; }
+.vormerken.fertig .vormerken-meldung { top: 0; margin-top: 0; color: var(--nacht-text); font-weight: 500; }
+/* Wofür die Adresse genutzt wird, mit Verweis auf den Datenschutz. Während eine Fehlermeldung
+   darunter steht, tritt der Hinweis zurück, damit sich nichts überlagert und nichts springt. */
+.vormerken-hinweis { margin-top: 10px; font-size: 16px; color: var(--nacht-leise); text-wrap: pretty; }
+.vormerken:has(.vormerken-meldung.fehler:not(:empty)) + .vormerken-hinweis { visibility: hidden; }
+.vormerken-hinweis a, .textseite a, .fuss a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(236, 228, 215, .35);
+  transition: text-decoration-color .2s ease, color .2s ease;
+}
+@media (hover: hover) {
+  .vormerken-hinweis a:hover, .textseite a:hover, .fuss a:hover { color: var(--nacht-text); text-decoration-color: currentColor; }
+}
+
+/* Fuß: Impressum und Datenschutz, leise unter dem letzten Abschnitt */
+.fuss {
+  width: var(--breite);
+  margin: 0 auto;
+  padding: 28px 0 max(28px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 32px;
+  font-size: 16px;
+  color: var(--nacht-leise);
+}
+.fuss nav { display: flex; flex-wrap: wrap; gap: 4px 28px; }
+.fuss a { display: inline-flex; align-items: center; min-height: 44px; }
+.fuss a[aria-current="page"] { color: var(--nacht-text); text-decoration-color: currentColor; }
+
+/* Textseiten (Impressum, Datenschutz): dieselbe Nacht, eine ruhige Lesespalte */
+.textseite {
+  width: var(--breite);
+  margin: 0 auto;
+  padding: calc(var(--kopf) + clamp(24px, 6vh, 64px)) 0 clamp(48px, 8vh, 96px);
+}
+.textseite > * { max-width: 40rem; }
+.textseite h1 {
+  margin: 0 0 clamp(28px, 3vw, 40px) -.04em;
+  font-size: clamp(28px, 2.6vw, 38px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+}
+.textseite h2 {
+  margin: clamp(36px, 4vw, 48px) 0 10px;
+  font-size: clamp(18px, 1.6vw, 21px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+}
+.textseite p, .textseite ul { margin: 0 0 14px; font-size: 17px; line-height: 1.6; color: var(--nacht-leise); }
+.textseite ul { padding-left: 1.2em; }
+.textseite li + li { margin-top: 4px; }
+.textseite strong { color: var(--nacht-text); font-weight: 600; }
+.textseite address { font-style: normal; }
+.textseite .stand { margin-top: clamp(36px, 4vw, 48px); font-size: 16px; color: var(--nacht-leise); }
+/* Angaben, die noch fehlen: wie ein Feld zum Ausfüllen markiert, bis sie eingetragen sind */
+.luecke { padding: 1px 6px; border-radius: var(--r-knopf); background: rgba(236, 228, 215, .1); color: var(--nacht-text); }
+
+/* Mittlere Fenster */
+@media (max-width: 1100px) {
+  :root { --rand: 32px; }
+  .vormerken { grid-template-columns: 1fr; }
+  .vormerken .knopf { width: 100%; }
+}
+
+@media (max-width: 900px) {
+  /* zweispaltig bleiben, damit Bild und Angaben zusammen auf einen Bildschirm passen */
+  .produkt { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+}
+/* schmale und niedrige Desktopfenster: die Tafel „So geht’s“ bleibt auch mit offener Karte im Bild */
+@media (min-width: 761px) and (max-width: 900px) and (max-height: 680px) {
+  .modul-schritte { grid-template-columns: minmax(0, 1fr) min(46%, 100svh - 96px); }
+}
+@media (min-width: 761px) and (max-height: 640px) {
+  .anleitung { padding-block: 16px; }
+  .schritte-steuerung { padding-block: 22px; }
+}
+
+/* Handy */
+@media (max-width: 760px) {
+  :root { --rand: 16px; --kopf: 60px; --r-modul: 12px; }
+  body { font-size: 17px; }
+  .einstieg {
+    --claim: clamp(36px, 10.5vw, 44px);
+    --fuss-unten: 28px;
+    /* Die Box füllt fast die ganze Breite, die leeren Bildränder laufen seitlich aus dem Fenster */
+    --s: min(116vw, (max(100svh, 340px) - 24px - var(--fuss)) / .95);
+    overflow-x: clip;
+  }
+  .einstieg-fuss { margin-top: calc(var(--s) * -.05); }
+  .kauf { flex-direction: column; align-items: flex-end; gap: 10px; padding-bottom: 2px; }
+  .kauf-preis { font-size: 18px; }
+  .knopf { height: 46px; padding: 0 22px; font-size: 16px; }
+
+  :root { --r-tafel: 20px; }
+  .wofuer { grid-template-columns: 1fr; gap: 20px; }
+  .moment-tabs { max-width: none; margin-top: 18px; gap: 8px; }
+  .moment-tab { min-height: 48px; padding: 11px 18px; }
+  .modul-schritte { grid-template-columns: 1fr; }
+  .modul-schritte .buehne-schritte {
+    order: -1;
+    -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+  }
+  .schritte-steuerung { padding: 4px 16px 20px; }
+  .schritt-kopf { white-space: normal; }
+  .schritt-text { padding-right: 18px; }
+
+  /* volle Fensterbreite, damit das Bild erst am Fensterrand ausläuft */
+  .produkt { width: auto; padding-inline: var(--rand); grid-template-columns: 1fr; overflow-x: clip; gap: 20px; }
+  /* das Bild läuft seitlich aus dem Fenster, die Box füllt fast die Breite */
+  .produkt-buehne { --pb: min(116vw, (100svh - 40px) * 1.5); width: var(--pb); margin-inline: calc((100% - var(--pb)) / 2); }
+}
+/* Handy: Die Schrittbühne bleibt oben im Bild stehen, während die Karten darunter durchlaufen.
+   So ist die Bewegung bei jedem angetippten Schritt zu sehen, auch bei Schritt 4.
+   overflow: clip statt hidden, sonst klebt nichts; ältere Browser behalten das bisherige Verhalten. */
+@media (max-width: 760px) {
+  @supports (overflow: clip) {
+    .modul-schritte { overflow: clip; }
+    .modul-schritte .buehne-schritte { position: sticky; top: 0; z-index: 1; align-self: start; }
+  }
+}
+/* Handy quer: zweispaltig wie am Desktop, Bilder nach der Höhe begrenzt, damit Bedienung und Bild
+   nebeneinander zu sehen sind */
+@media (max-width: 760px) and (orientation: landscape) {
+  .wofuer { grid-template-columns: minmax(0, 1fr) min(46%, 100svh - 120px); padding-block: 20px; }
+  .produkt { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; padding-block: 20px; }
+  .produkt-buehne { --pb: 100%; }
+  @supports (overflow: clip) { .modul-schritte .buehne-schritte { top: 20px; } }
+  .modul-schritte { grid-template-columns: minmax(0, 1fr) min(46%, 100svh - 40px); }
+  .schritte-steuerung { display: block; padding: 20px 16px 20px 20px; }
+  .modul-schritte .buehne-schritte {
+    order: 0;
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0, #000 14%),
+      linear-gradient(to bottom, transparent 0, #000 5%, #000 93%, transparent 100%);
+    -webkit-mask-composite: source-in;
+            mask-image:
+      linear-gradient(to right, transparent 0, #000 14%),
+      linear-gradient(to bottom, transparent 0, #000 5%, #000 93%, transparent 100%);
+            mask-composite: intersect;
+  }
+}
+/* Safari vor Version 16 kennt overflow-x: clip nicht (nur auf dem Handy nötig) */
+@media (max-width: 760px) {
+  @supports not (overflow-x: clip) {
+    .einstieg, .produkt { overflow-x: hidden; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .buehne, .buehne-einstieg .buehne, .knopf, .schritt, .farbe, .moment-szene, .moment-tab { transition: none; }
+  .regler-text span { animation: none; }
+  .schritt.offen .schritt-text { animation: none; }
+}
+
+/* Kontrastmodus (forced-colors): Flächen und Schatten fallen dort weg. Farbfelder behalten ihre
+   Boxfarbe, Auswahl, Reiter, offene Karte und Schieber zeigen ihren Zustand über Rahmen. */
+@media (forced-colors: active) {
+  .farbe { forced-color-adjust: none; }
+  .farbe[aria-checked="true"] { outline: 2px solid Highlight; outline-offset: 4px; }
+  .moment-tab, .schritt, .regler-spur { border: 1px solid CanvasText; }
+  .moment-tab[aria-selected="true"], .schritt.offen { outline: 3px solid Highlight; outline-offset: 2px; }
+  .knopf { border: 1px solid ButtonText; }
+  .regler-griff { border: 2px solid CanvasText; }
+  .regler-griff:focus-visible { outline: 2px solid Highlight; }
+  .schritt-fortschritt { background: CanvasText; }
+}
+
+/* Safari 15.0 bis 15.3 kennt svh nicht: dieselben Maße mit vh */
+@supports not (height: 1svh) {
+  .einstieg { height: 100vh; --s: min(100vw - 2 * var(--rand), (max(100vh, 340px) - 24px - var(--fuss)) / .91, 940px); }
+  .wofuer, .anleitung, .produkt { min-height: 100vh; }
+  .wofuer { grid-template-columns: minmax(0, 1fr) min(58.33%, max(100vh - 180px, 300px)); }
+  .modul-schritte { grid-template-columns: minmax(0, 1fr) min(58.33%, 100vh - 96px); }
+  .produkt-buehne { width: min(100%, (100vh - 96px) * 1.5); }
+}
+@media (max-width: 760px) {
+  @supports not (height: 1svh) {
+    .einstieg { --s: min(116vw, (max(100vh, 340px) - 24px - var(--fuss)) / .95); }
+    .wofuer, .modul-schritte { grid-template-columns: 1fr; }
+    .produkt-buehne { --pb: min(116vw, (100vh - 40px) * 1.5); width: var(--pb); }
+  }
+}

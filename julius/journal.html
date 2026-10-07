@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Journal · OFF LIGHT</title>
+<meta name="description" content="Notes from offline.">
+<meta name="theme-color" content="#1d1612">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="startseite.css?v=9dc357f">
+<!-- Ohne JavaScript: das Menü steht als Zeile da -->
+<noscript><style>
+  .menue-knopf { display: none; }
+  .menue { display: flex; }
+  @media (max-width: 760px) {
+    .kopf { height: auto; min-height: var(--kopf); flex-wrap: wrap; gap: 0 16px; }
+    .menue { flex-wrap: wrap; gap: 0 18px; }
+    .menue a { font-size: 12px; letter-spacing: .12em; }
+  }
+</style></noscript>
+</head>
+<body>
+<header class="kopf">
+  <a class="marke" href="index.html" aria-label="OFF LIGHT, home">OFF LIGHT</a>
+  <button type="button" class="menue-knopf" aria-expanded="false" aria-controls="menue" lang="en">Menu</button>
+  <nav class="menue" id="menue" aria-label="Menu" lang="en">
+    <a href="shop.html">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="journal.html" aria-current="page">Journal</a>
+    <a href="index.html#ritual">The Ritual</a>
+    <p class="menue-satz">Phone off. Light on.</p>
+  </nav>
+</header>
+
+<main class="seite journal" id="oben">
+  <header class="seitenkopf">
+    <p class="auftakt">Journal</p>
+    <h1>Notes from offline.</h1>
+  </header>
+
+  <!-- Die Karten sind keine Links: Es gibt noch keine Beiträge dahinter.
+       Karte 5 ist als Vorschlag formuliert, nicht als Bericht (siehe DESIGN.md). -->
+  <div class="journal-karten">
+    <article class="journal-karte">
+      <img src="bilder/seiten/journal-lesen.webp" alt="How to read a whole book again" width="1120" height="840">
+      <p class="auftakt">Offline</p>
+      <h2>How to read a whole book again</h2>
+      <p>Two hours, one candle, no second screen.</p>
+    </article>
+    <article class="journal-karte">
+      <img src="bilder/seiten/journal-lernen.webp" alt="The 90-minute study block" width="933" height="700">
+      <p class="auftakt">Focus</p>
+      <h2>The 90-minute study block</h2>
+      <p>Why the box beats the app blocker.</p>
+    </article>
+    <article class="journal-karte">
+      <img src="bilder/seiten/journal-essen.webp" alt="Dinner without the table scroll" width="1120" height="840">
+      <p class="auftakt">Together</p>
+      <h2>Dinner without the table scroll</h2>
+      <p>A small rule that changed our evenings.</p>
+    </article>
+    <article class="journal-karte">
+      <img src="bilder/seiten/journal-raum.webp" alt="Notes on quiet interiors" width="1114" height="836" loading="lazy">
+      <p class="auftakt">Design</p>
+      <h2>Notes on quiet interiors</h2>
+      <p>Warm neutrals, deep colour, honest materials.</p>
+    </article>
+    <article class="journal-karte">
+      <img src="bilder/seiten/journal-ideen.webp" alt="What you could do offline" width="772" height="579" loading="lazy">
+      <p class="auftakt">Community</p>
+      <h2>What you could do offline</h2>
+      <p>Talk, mostly. Draw something. Or just sleep.</p>
+    </article>
+    <article class="journal-karte">
+      <img src="bilder/seiten/journal-duft.webp" alt="Scent, memory and slowing down" width="640" height="480" loading="lazy">
+      <p class="auftakt">Craft</p>
+      <h2>Scent, memory and slowing down</h2>
+      <p>How we built three scents that don't shout.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="fuss">
+  <div class="fuss-innen">
+    <div class="fuss-spalten">
+      <div class="fuss-marke">
+        <p class="marke">OFF LIGHT</p>
+        <p class="fuss-zeile">Designed in Switzerland. Made to be kept.</p>
+        <p class="fuss-sozial">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
+        </p>
+      </div>
+      <nav aria-labelledby="fuss-shop">
+        <p class="fuss-titel" id="fuss-shop">Shop</p>
+        <ul>
+          <li><a href="shop.html">Offlight Candle</a></li>
+          <li><a href="shop.html">Refills</a></li>
+          <li><a href="shop.html">Gift Notes</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="fuss-brand">
+        <p class="fuss-titel" id="fuss-brand">Brand</p>
+        <ul>
+          <li><a href="index.html#ritual">The Ritual</a></li>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="journal.html">Journal</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="fuss-help">
+        <p class="fuss-titel" id="fuss-help">Help</p>
+        <ul>
+          <li><a href="story.html#faq">FAQ</a></li>
+          <li><a href="story.html#contact">Contact</a></li>
+          <li><a href="terms.html">Shipping &amp; Returns</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="fuss-satz">PHONE OFF.<br>LIGHT ON.</p>
+    <div class="fuss-ende">
+      <span>© 2026 Offlight — Switzerland</span>
+      <nav aria-label="Legal">
+        <a href="impressum.html">Legal</a>
+        <a href="datenschutz.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="startseite.js?v=9dc357f"></script>
+</body>
+</html>

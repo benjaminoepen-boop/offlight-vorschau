@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OFF LIGHT · Phone off. Light on.</title>
+<meta name="description" content="OFF LIGHT ist eine Box für dein Handy mit einer Kerze auf dem Deckel. Phone off. Light on.">
+<meta name="theme-color" content="#1d1612">
+<link rel="stylesheet" href="startseite.css?v=0a361d4">
+</head>
+<body>
+<header class="kopf">
+  <a class="marke" href="#oben" aria-label="OFF LIGHT, nach oben">OFF LIGHT</a>
+</header>
+
+<main id="oben">
+  <section class="einstieg" aria-labelledby="claim">
+    <div class="buehne-einstieg" tabindex="0" role="button" aria-pressed="false"
+         aria-label="Box öffnen und schließen">
+     <div class="buehne">
+      <img data-ebene="basis" data-src="ebenen/basis.webp" alt="">
+      <img data-ebene="offenAn" data-src="ebenen/offen-an.webp" alt="">
+      <div data-ebene="schattenFuge" class="schatten"></div>
+      <img data-ebene="deckel" data-src="ebenen/deckel.webp" alt="">
+      <img data-ebene="kaltDeckel" data-src="ebenen/kalt-deckel.webp" alt="" class="licht">
+      <div data-ebene="schattenKerze" class="schatten kerze"></div>
+      <img data-ebene="kerze" data-src="ebenen/kerze.webp" alt="">
+      <img data-ebene="warmSchein" data-src="ebenen/warm-schein.webp" alt="" class="licht">
+      <img data-ebene="flamme" data-src="ebenen/warm-flamme.webp" alt="" class="licht">
+     </div>
+    </div>
+
+    <div class="einstieg-fuss">
+      <h1 class="claim" id="claim" lang="en">Phone off.<br>Light <span class="an">on.</span></h1>
+      <div class="kauf">
+        <a class="kauf-preis" href="#produkt" aria-label="39,90 €, zur Produktansicht">39,90 €</a>
+        <a class="knopf knopf-hell" href="#produkt">Vormerken</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wofuer" aria-labelledby="wofuer-titel">
+    <div class="wofuer-text">
+      <h2 id="wofuer-titel">Eine Kerze lang ohne Handy.</h2>
+      <div class="moment-tabs" role="tablist" aria-label="Momente">
+          <button type="button" class="moment-tab" role="tab" id="tab-essen" aria-controls="moment-bild" aria-selected="true" tabindex="0" data-moment="essen">Beim Essen</button>
+          <button type="button" class="moment-tab" role="tab" id="tab-lernen" aria-controls="moment-bild" aria-selected="false" tabindex="-1" data-moment="lernen">Beim Lernen</button>
+          <button type="button" class="moment-tab" role="tab" id="tab-abend" aria-controls="moment-bild" aria-selected="false" tabindex="-1" data-moment="abend">Am Abend für dich</button>
+      </div>
+    </div>
+
+    <div class="moment" id="moment-bild" role="tabpanel" aria-labelledby="tab-essen">
+      <div class="moment-bild">
+        <div class="moment-szene sichtbar" data-moment="essen">
+          <img class="m-handy" src="bilder/momente/essen-handy.webp" alt="Abendessen zu viert, zwei Handys leuchten neben den Tellern">
+          <img class="m-kerze" src="bilder/momente/essen-kerze.webp" alt="Abendessen zu viert bei Kerzenlicht, die OFF LIGHT Box in der Tischmitte">
+        </div>
+        <div class="moment-szene" data-moment="lernen">
+          <img class="m-handy" src="bilder/momente/lernen-handy.webp" alt="Schreibtisch, ein Handy leuchtet auf dem Heft" loading="lazy">
+          <img class="m-kerze" src="bilder/momente/lernen-kerze.webp" alt="Schreibtisch bei Kerzenlicht, die OFF LIGHT Box hinten auf dem Tisch" loading="lazy">
+        </div>
+        <div class="moment-szene" data-moment="abend">
+          <img class="m-handy" src="bilder/momente/abend-handy.webp" alt="Sessel am Fenster, ein Handy leuchtet auf der Armlehne" loading="lazy">
+          <img class="m-kerze" src="bilder/momente/abend-kerze.webp" alt="Sessel am Fenster bei Kerzenlicht, die OFF LIGHT Box auf dem Beistelltisch" loading="lazy">
+        </div>
+      </div>
+      <div class="regler">
+        <div class="regler-spur">
+          <span class="regler-fuellung" aria-hidden="true"></span>
+          <span class="regler-text" aria-hidden="true"><span>Schieben für Kerzenlicht</span></span>
+          <div class="regler-griff" role="slider" tabindex="0" aria-label="Licht, von Handylicht bis Kerzenlicht"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Handylicht">
+            <svg class="ikon-handy" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.6"/><path d="M10.6 18.4h2.8"/></svg>
+            <svg class="ikon-flamme" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2c3.4 0 5.7-2.4 5.7-5.6 0-3.7-3.3-5.8-4.2-9.3-.3-1.1-1.5-1.4-2.2-.6-2.1 2.4-4.9 5.3-4.9 9.9 0 3.2 2.2 5.6 5.6 5.6z"/><path d="M12 18.6c1.3 0 2.2-.9 2.2-2.2 0-1.5-1.1-2.4-1.6-3.6-.9 1-2.8 2-2.8 3.8 0 1.2.9 2 2.2 2z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="anleitung" aria-labelledby="anleitung-titel">
+    <div class="modul-schritte">
+      <div class="schritte-steuerung">
+        <h2 id="anleitung-titel" class="modul-titel">So geht’s</h2>
+        <div class="schritte-rahmen">
+          <ol class="schritte">
+          <li class="schritt" data-schritt="1">
+            <button type="button" class="schritt-kopf" aria-expanded="false" aria-controls="schritt-text-1">
+              <span class="schritt-zeichen" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="12.75"/></svg><span class="schritt-nr">1</span></span>
+              <span class="schritt-name">Kerze abnehmen</span>
+            </button>
+            <div class="schritt-text" id="schritt-text-1"><p>Die Kerze steht lose in der Mulde im Deckel. Du hebst sie einfach ab.</p></div>
+            <span class="schritt-fortschritt" aria-hidden="true"></span>
+          </li>
+          <li class="schritt" data-schritt="2">
+            <button type="button" class="schritt-kopf" aria-expanded="false" aria-controls="schritt-text-2">
+              <span class="schritt-zeichen" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="12.75"/></svg><span class="schritt-nr">2</span></span>
+              <span class="schritt-name">Handy hineinlegen</span>
+            </button>
+            <div class="schritt-text" id="schritt-text-2"><p>Dein Handy liegt auf einem weichen Einsatz aus Samt. Der Bildschirm darf ruhig noch leuchten.</p></div>
+            <span class="schritt-fortschritt" aria-hidden="true"></span>
+          </li>
+          <li class="schritt" data-schritt="3">
+            <button type="button" class="schritt-kopf" aria-expanded="false" aria-controls="schritt-text-3">
+              <span class="schritt-zeichen" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="12.75"/></svg><span class="schritt-nr">3</span></span>
+              <span class="schritt-name">Deckel schließen</span>
+            </button>
+            <div class="schritt-text" id="schritt-text-3"><p>Der Deckel liegt satt auf. Was jetzt noch aufleuchtet, sieht niemand.</p></div>
+            <span class="schritt-fortschritt" aria-hidden="true"></span>
+          </li>
+          <li class="schritt" data-schritt="4">
+            <button type="button" class="schritt-kopf" aria-expanded="false" aria-controls="schritt-text-4">
+              <span class="schritt-zeichen" aria-hidden="true"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="12.75"/></svg><span class="schritt-nr">4</span></span>
+              <span class="schritt-name">Kerze anzünden</span>
+            </button>
+            <div class="schritt-text" id="schritt-text-4"><p>Stell die Kerze zurück auf den Deckel und zünde sie an. Wer jetzt ans Handy will, muss erst die brennende Kerze abnehmen.</p></div>
+            <span class="schritt-fortschritt" aria-hidden="true"></span>
+          </li>
+          </ol>
+        </div>
+        <p class="nur-vorlesen" data-status aria-live="polite"></p>
+      </div>
+
+      <div class="buehne buehne-schritte" role="img" aria-label="OFF LIGHT Box in Oliv mit Kerze im satinierten Glas">
+        <img data-ebene="basis" data-src="ebenen/basis.webp" alt="">
+        <img data-ebene="offenAn" data-src="ebenen/offen-an.webp" alt="">
+        <div data-ebene="schattenFuge" class="schatten"></div>
+        <img data-ebene="deckel" data-src="ebenen/deckel.webp" alt="">
+        <img data-ebene="kaltDeckel" data-src="ebenen/kalt-deckel.webp" alt="" class="licht">
+        <div data-ebene="schattenKerze" class="schatten kerze"></div>
+        <img data-ebene="kerze" data-src="ebenen/kerze.webp" alt="">
+        <img data-ebene="warmSchein" data-src="ebenen/warm-schein.webp" alt="" class="licht">
+        <img data-ebene="flamme" data-src="ebenen/warm-flamme.webp" alt="" class="licht">
+      </div>
+    </div>
+  </section>
+
+  <section class="produkt" id="produkt" aria-labelledby="produkt-titel">
+    <div class="produkt-buehne" role="img" aria-label="OFF LIGHT in Oliv, die Kerze auf dem Deckel brennt">
+      <div class="produkt-licht">
+        <div class="produkt-szene">
+          <img class="p-aus" alt="">
+          <img class="p-schein licht" alt="">
+          <img class="p-flamme licht" alt="">
+        </div>
+        <div class="produkt-szene">
+          <img class="p-aus" alt="">
+          <img class="p-schein licht" alt="">
+          <img class="p-flamme licht" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="produkt-angaben">
+      <h2 id="produkt-titel">OFF LIGHT</h2>
+      <p class="produkt-zeile">Box und Kerze</p>
+
+      <div class="farbwahl">
+        <p class="farbwahl-titel" id="farbe-titel">Farbe <span data-farbname>Oliv</span></p>
+        <div class="farben" role="radiogroup" aria-labelledby="farbe-titel">
+          <button type="button" class="farbe" role="radio" aria-checked="true" tabindex="0" data-farbe="oliv" data-name="Oliv" style="--muster:#4b4b31" aria-label="Oliv"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="bordeaux" data-name="Bordeaux" style="--muster:#62272a" aria-label="Bordeaux"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="nachtblau" data-name="Nachtblau" style="--muster:#25324f" aria-label="Nachtblau"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="anthrazit" data-name="Anthrazit" style="--muster:#3b3d3f" aria-label="Anthrazit"></button>
+        </div>
+      </div>
+
+      <p class="produkt-preis">39,90 €</p>
+      <p class="produkt-hinweis">Noch nicht lieferbar. Wir schreiben dir, sobald es&nbsp;losgeht.</p>
+
+      <form class="vormerken" method="post" action="#produkt" novalidate>
+        <input type="hidden" name="farbe" value="oliv">
+        <label class="nur-vorlesen" for="email">E-Mail-Adresse</label>
+        <input class="feld" id="email" name="email" type="email" autocomplete="email" inputmode="email"
+               placeholder="E-Mail-Adresse" aria-describedby="vormerken-meldung" required>
+        <button type="submit" class="knopf knopf-hell">Vormerken</button>
+        <p class="vormerken-meldung" id="vormerken-meldung" data-meldung aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="geometrie.js?v=0a361d4"></script>
+<script src="farben.js?v=0a361d4"></script>
+<script src="startseite.js?v=0a361d4"></script>
+</body>
+</html>

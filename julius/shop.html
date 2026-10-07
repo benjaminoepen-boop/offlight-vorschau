@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop · OFF LIGHT</title>
+<meta name="description" content="Offlight — Digital Detox Candle. Not released yet: join the waitlist.">
+<meta name="theme-color" content="#1d1612">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="startseite.css?v=9dc357f">
+<!-- Ohne JavaScript: das Menü steht als Zeile da -->
+<noscript><style>
+  .menue-knopf { display: none; }
+  .menue { display: flex; }
+  @media (max-width: 760px) {
+    .kopf { height: auto; min-height: var(--kopf); flex-wrap: wrap; gap: 0 16px; }
+    .menue { flex-wrap: wrap; gap: 0 18px; }
+    .menue a { font-size: 12px; letter-spacing: .12em; }
+  }
+  .produkt-licht { opacity: 1; }
+  .vormerken, .vormerken-hinweis { display: none; }
+</style></noscript>
+</head>
+<body>
+<header class="kopf">
+  <a class="marke" href="index.html" aria-label="OFF LIGHT, home">OFF LIGHT</a>
+  <button type="button" class="menue-knopf" aria-expanded="false" aria-controls="menue" lang="en">Menu</button>
+  <nav class="menue" id="menue" aria-label="Menu" lang="en">
+    <a href="shop.html" aria-current="page">Shop</a>
+    <a href="story.html">Our Story</a>
+    <a href="journal.html">Journal</a>
+    <a href="index.html#ritual">The Ritual</a>
+    <p class="menue-satz">Phone off. Light on.</p>
+  </nav>
+</header>
+
+<main id="oben">
+  <!-- Kein Shop: kein Warenkorb, keine Menge, kein Kauf. Das Produkt ist noch nicht veröffentlicht,
+       an der Stelle von „Add to bag“ steht die Warteliste. Die Texte für startseite.js stehen als
+       data-text-… am Abschnitt, damit Meldungen und Farbnamen hier englisch sind. -->
+  <section class="produkt produkt-shop" id="produkt" aria-labelledby="produkt-titel"
+           data-text-leer="Please enter your email address."
+           data-text-falsch="This email address doesn’t look right yet."
+           data-text-danke="Thank you. The waitlist is not connected yet, so your address was not saved."
+           data-text-folgt="{name} coming soon"
+           data-text-bild="OFF LIGHT in {name}, the candle on the lid is burning">
+    <div class="produkt-buehne" role="img" aria-label="OFF LIGHT in Olive, the candle on the lid is burning">
+      <div class="produkt-licht">
+        <div class="produkt-szene">
+          <img class="p-aus" alt="">
+          <img class="p-schein licht" alt="">
+          <img class="p-flamme licht" alt="">
+        </div>
+        <div class="produkt-szene">
+          <img class="p-aus" alt="">
+          <img class="p-schein licht" alt="">
+          <img class="p-flamme licht" alt="">
+        </div>
+        <noscript><div class="produkt-szene">
+          <img class="p-aus" src="bilder/farben/oliv-aus.webp" alt="">
+          <img class="p-schein licht" src="bilder/farben/oliv-schein.webp" alt="">
+          <img class="p-flamme licht" src="bilder/farben/oliv-flamme.webp" alt="" style="left: 48.09%; top: 16.75%; width: 3.91%; height: 10.29%">
+        </div></noscript>
+      </div>
+    </div>
+
+    <div class="produkt-angaben">
+      <p class="auftakt">Offlight — Edition 01</p>
+      <h1 id="produkt-titel">Offlight — Digital Detox Candle</h1>
+      <p class="produkt-zeile">Put your phone away. Light the candle. Take the moment back.</p>
+
+      <p class="produkt-preis">39,99 €</p>
+      <p class="produkt-status">Not released yet</p>
+
+      <div class="farbwahl">
+        <p class="farbwahl-titel" id="farbe-titel">Colour <span data-farbname>Olive</span></p>
+        <div class="farben" role="radiogroup" aria-labelledby="farbe-titel">
+          <button type="button" class="farbe" role="radio" aria-checked="true" tabindex="0" data-farbe="oliv" data-name="Olive" style="--muster:#4b4b31" aria-label="Olive"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="bordeaux" data-name="Burgundy" style="--muster:#62272a" aria-label="Burgundy"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="nachtblau" data-name="Navy" style="--muster:#25324f" aria-label="Navy"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="anthrazit" data-name="Anthracite" style="--muster:#3b3d3f" aria-label="Anthracite"></button>
+        </div>
+      </div>
+
+      <div class="duefte">
+        <p class="farbwahl-titel">Scent</p>
+        <ul>
+          <li><span>Smoked Cedar</span><span>cedar · vetiver · dry smoke</span></li>
+          <li><span>Warm Paper</span><span>paper · amber · tonka</span></li>
+          <li><span>Night Fig</span><span>fig · black tea · musk</span></li>
+        </ul>
+      </div>
+
+      <p class="produkt-hinweis">Not available yet. Join the waitlist and we’ll write to you as soon as it launches.</p>
+
+      <form class="vormerken" method="post" action="#produkt" novalidate>
+        <input type="hidden" name="farbe" value="oliv">
+        <label class="nur-vorlesen" for="email">Email address</label>
+        <input class="feld" id="email" name="email" type="email" autocomplete="email" inputmode="email"
+               placeholder="Email address" aria-describedby="vormerken-meldung vormerken-hinweis" required>
+        <button type="submit" class="knopf knopf-hell">Join the waitlist</button>
+        <p class="vormerken-meldung" id="vormerken-meldung" data-meldung aria-live="polite"></p>
+      </form>
+      <p class="vormerken-hinweis" id="vormerken-hinweis">We only use your address for this one message. <a href="datenschutz.html">Privacy</a></p>
+      <noscript><p class="produkt-hinweis">Please turn on JavaScript to join the waitlist.</p></noscript>
+
+      <dl class="angaben-liste">
+        <dt>45 hours</dt><dd>Coconut-soy wax, cotton wick.</dd>
+        <dt>Fits every phone</dt><dd>Felt-lined, up to 6.9 inches.</dd>
+        <dt>Refillable</dt><dd>Keep the box. Replace the candle.</dd>
+        <dt>Designed in Switzerland</dt><dd>Lacquered ash, made in small runs.</dd>
+      </dl>
+
+      <div class="lieferumfang">
+        <p class="auftakt">In the box</p>
+        <ul>
+          <li>— Scented candle</li>
+          <li>— Candle pedestal</li>
+          <li>— Phone compartment</li>
+          <li>— Reusable box</li>
+          <li>— QR playlist</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="ablauf" aria-labelledby="ablauf-titel">
+    <h2 id="ablauf-titel">How it works</h2>
+    <ol class="ablauf-schritte">
+      <li>
+        <div class="freibild"><img src="bilder/seiten/schritt-1.webp" alt="Take out the candle" width="800" height="800" loading="lazy"></div>
+        <p class="ablauf-nr">01</p>
+        <p class="ablauf-name">Take out the candle</p>
+      </li>
+      <li>
+        <div class="freibild"><img src="bilder/seiten/schritt-2.webp" alt="Put your phone inside" width="800" height="800" loading="lazy"></div>
+        <p class="ablauf-nr">02</p>
+        <p class="ablauf-name">Put your phone inside</p>
+      </li>
+      <li>
+        <div class="freibild"><img src="bilder/seiten/schritt-3.webp" alt="Close the box" width="800" height="800" loading="lazy"></div>
+        <p class="ablauf-nr">03</p>
+        <p class="ablauf-name">Close the box</p>
+      </li>
+      <li>
+        <div class="freibild"><img src="bilder/seiten/schritt-4.webp" alt="Light the candle" width="800" height="800" loading="lazy"></div>
+        <p class="ablauf-nr">04</p>
+        <p class="ablauf-name">Light the candle</p>
+      </li>
+    </ol>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="fuss-innen">
+    <div class="fuss-spalten">
+      <div class="fuss-marke">
+        <p class="marke">OFF LIGHT</p>
+        <p class="fuss-zeile">Designed in Switzerland. Made to be kept.</p>
+        <p class="fuss-sozial">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
+        </p>
+      </div>
+      <nav aria-labelledby="fuss-shop">
+        <p class="fuss-titel" id="fuss-shop">Shop</p>
+        <ul>
+          <li><a href="shop.html">Offlight Candle</a></li>
+          <li><a href="shop.html">Refills</a></li>
+          <li><a href="shop.html">Gift Notes</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="fuss-brand">
+        <p class="fuss-titel" id="fuss-brand">Brand</p>
+        <ul>
+          <li><a href="index.html#ritual">The Ritual</a></li>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="journal.html">Journal</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="fuss-help">
+        <p class="fuss-titel" id="fuss-help">Help</p>
+        <ul>
+          <li><a href="story.html#faq">FAQ</a></li>
+          <li><a href="story.html#contact">Contact</a></li>
+          <li><a href="terms.html">Shipping &amp; Returns</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="fuss-satz">PHONE OFF.<br>LIGHT ON.</p>
+    <div class="fuss-ende">
+      <span>© 2026 Offlight — Switzerland</span>
+      <nav aria-label="Legal">
+        <a href="impressum.html">Legal</a>
+        <a href="datenschutz.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="farben.js?v=9dc357f"></script>
+<script src="startseite.js?v=9dc357f"></script>
+</body>
+</html>
