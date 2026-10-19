@@ -1,0 +1,128 @@
+/* Vorschläge für die erste Folie (19.10.2026). Gilt nur für einstieg-1.html bis einstieg-4.html,
+   index.html bleibt unverändert. Alles außer dem Einstieg ist die echte Seite. */
+
+/* ---------- 1 Tiefe: der Name sitzt tiefer, Deckel und Kerze stehen vor den Buchstaben ---------- */
+[data-variante="1"] .einstieg {
+  --S1: min(calc(var(--h) * .9), 92rem, 62vw);
+  --wmh: calc((100vw - 2 * var(--rand)) * .13);   /* Höhe der Wortmarke (Zeilenhöhe .74 der Schriftgröße) */
+  --kerze: .47; --fuss: .62;
+}
+/* Die Gruppe steht höher als die Box jetzt: die geschlossene Kerze beginnt bei --kerze der Fensterhöhe,
+   darüber bleibt genau Platz für die geöffnete Box (Kerze 0,36 S höher) unter der Leiste */
+[data-variante="1"] .einstieg-buehne { --S: var(--S1); top: calc(var(--h) * var(--kerze) - .434 * var(--S)); }
+/* Unterkante der Buchstaben auf dem Deckel: die Kerze steht vor „LI“, der Deckel verdeckt nur den Fuß der Buchstaben */
+[data-variante="1"] .einstieg-kopf { top: calc(var(--h) * var(--kerze) - .434 * var(--S1) + var(--fuss) * var(--S1) - var(--wmh)); }
+
+/* ---------- 2 Gestapelt: OFF über LIGHT, groß links, die Box rechts ---------- */
+[data-variante="2"] .einstieg { --S2: min(calc(var(--h) * .98), 92rem, 56vw); }
+[data-variante="2"] .einstieg-kopf { top: auto; bottom: 8.4rem; }
+[data-variante="2"] .wortmarke { width: 46vw; line-height: .78; white-space: normal; }
+[data-variante="2"] .wm-maske { white-space: nowrap; }
+[data-variante="2"] .einstieg-buehne { --S: var(--S2); left: auto; right: calc(var(--rand) - .08 * var(--S)); top: calc(var(--h) - 8.4rem - .8636 * var(--S)); }
+
+/* ---------- 3 Botschaft: Claim statt Riesenname, die Box rechts, das kleine Logo steht von Anfang an ---------- */
+[data-variante="3"] .einstieg { --S3: min(calc(var(--h) * .98), 92rem, 58vw); }
+[data-variante="3"] .einstieg-kopf { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+[data-variante="3"] .leiste .marke { opacity: 1; visibility: visible; }
+[data-variante="3"] .einstieg-buehne { --S: var(--S3); left: auto; right: calc(var(--rand) - .06 * var(--S)); top: calc(var(--h) - 6rem - .8636 * var(--S)); }
+.v-botschaft {
+  position: absolute; z-index: 4; left: var(--rand); top: 50%; transform: translateY(-46%);
+  display: grid; gap: 2.4rem; justify-items: start; max-width: 44vw;
+}
+.v-claim {
+  margin: 0; font-family: var(--anzeige); font-weight: 500; font-size: min(10.4rem, 7.4vw);
+  line-height: .96; letter-spacing: -.035em; color: var(--weiss);
+}
+.v-unter { margin: 0; font-size: 2.2rem; line-height: 1.3; color: var(--asche); }
+[data-variante="3"] .v-botschaft .einstieg-ecke { position: static; margin-top: 1.2rem; }
+html.js[data-variante="3"] .v-claim, html.js[data-variante="3"] .v-unter { opacity: 0; transform: translateY(24px); }
+html.js[data-variante="3"] .einstieg.los .v-claim, html.js[data-variante="3"] .einstieg.los .v-unter {
+  opacity: 1; transform: none; transition: opacity 1.2s var(--kurve) .2s, transform 1.2s var(--kurve) .2s;
+}
+html.js[data-variante="3"] .einstieg.los .v-unter { transition-delay: .4s; }
+
+/* ---------- 4 Abendlicht: Vollbild aus dem Moment „Am Abend“, erst leuchtet das Handy, dann brennt die Kerze ---------- */
+[data-variante="4"] .einstieg-buehne { display: none; }
+.v-foto { position: absolute; inset: 0; z-index: 0; }
+.v-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 53% 34%; display: block; }
+.v-foto::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom, var(--nacht) 0, rgba(29, 22, 18, .55) 30%, rgba(29, 22, 18, 0) 52%),
+    linear-gradient(to top, rgba(29, 22, 18, .7) 0, rgba(29, 22, 18, 0) 26%);
+}
+.js .v-kerze { opacity: 0; }
+.js .einstieg.los .v-kerze { animation: v-kerze-an 2.2s ease 1.4s forwards; }
+@keyframes v-kerze-an { to { opacity: 1; } }
+
+/* ---------- Handy ---------- */
+@media (max-width: 760px) {
+  /* 1: Name und Box als Gruppe in der Mitte, Preis und Vormerken unten */
+  [data-variante="1"] .einstieg { --S1: min(94vw, calc((var(--h) - 150px) / .86)); --wmh: calc((100vw - 32px) * .13); --kerze: .52; --fuss: .5; }
+
+  /* 2: LIGHT füllt die Breite, OFF darüber, die Box darunter */
+  [data-variante="2"] .einstieg { --S2: min(112vw, calc(var(--h) - 330px)); }
+  [data-variante="2"] .einstieg-kopf { top: calc(var(--leiste) + 14px); bottom: auto; }
+  [data-variante="2"] .wortmarke { width: auto; }
+  [data-variante="2"] .einstieg-buehne { right: auto; left: calc(50% - var(--S) / 2); top: calc(var(--h) - 92px - .8636 * var(--S)); }
+
+  /* 3: Claim oben, Preis und Vormerken darunter, die Box unten */
+  [data-variante="3"] .einstieg { --S3: min(112vw, calc(var(--h) - 300px)); }
+  .v-botschaft { top: calc(var(--leiste) + 22px); transform: none; max-width: none; gap: 14px; right: var(--rand); }
+  .v-claim { font-size: 52px; }
+  .v-unter { font-size: 17px; }
+  [data-variante="3"] .v-botschaft .einstieg-ecke { margin-top: 8px; }
+  [data-variante="3"] .einstieg-buehne { right: auto; left: calc(50% - var(--S) / 2); top: calc(var(--h) - 24px - .8636 * var(--S)); }
+
+  /* 4: Bildausschnitt um die Box */
+  .v-foto img { object-position: 53% 58%; }
+}
+
+/* ========== Runde 2 (5 bis 7): Folie wie jetzt, Preis und Vormerken sitzen anders ==========
+   Benis Wahl am 19.10.: 7 Fußzeile. Der Name steigt wie bisher direkt oben auf; der Weg aus der Mitte
+   (Name zwischen Deckel und Boden, dann nach oben gleiten) war ihm zu viel und zu lang (Commit 3953c6c).
+   --unten: Unterkante der Box über dem Fensterrand, die Boxgröße folgt daraus wie in seite.css. */
+[data-runde] .einstieg { --unten: 8.4rem; }
+[data-runde] .einstieg-buehne {
+  --S: min(calc(var(--h) * .98), 98rem, calc((var(--h) - 9.6rem - var(--unten)) / .7918));
+  top: calc(var(--h) - var(--unten) - .8636 * var(--S));
+}
+/* Vormerken dezent: Umriss wie in der Leiste statt der hellen Fläche */
+.einstieg-ecke .knopf-umriss { font-size: 1.5rem; }
+
+/* Zeile „was es ist“ (5 und 7) */
+.v-was { margin: 0 auto 0 0; font-size: 1.8rem; line-height: 1.3; color: var(--asche); text-wrap: balance; }
+
+/* 5 Unter dem Namen: eine Zeile direkt unter der Wortmarke, bündig mit O und T; erscheint nach den Buchstaben */
+[data-variante="5"] .einstieg { --unten: 6rem; }
+[data-variante="5"] .einstieg-kopf .einstieg-ecke { position: relative; right: auto; bottom: auto; margin: 2.4rem var(--rand) 0; }
+html.js[data-variante="5"] .einstieg.los .einstieg-ecke { transition-delay: 1s; }
+
+/* 6 Unter der Box: Preis und Vormerken mittig unter der Box, auf einer Achse mit Name und Box */
+[data-variante="6"] .einstieg { --unten: 11.2rem; }
+[data-variante="6"] .einstieg-ecke { left: 0; right: 0; bottom: 3.6rem; justify-content: center; }
+
+/* 7 Fußzeile: unten über die ganze Breite, links was es ist, rechts Preis und Vormerken */
+[data-variante="7"] .einstieg-ecke { left: var(--rand); }
+
+@media (max-width: 1279px) {
+  [data-runde] .einstieg-buehne { --S: min(calc(var(--h) * .98), 98rem, calc((var(--h) - 9.6rem - var(--unten)) / .7918), calc(65vw - 30px)); }
+}
+@media (max-width: 760px) {
+  [data-runde] .einstieg { --unten: 100px; }
+  [data-runde] .einstieg-buehne { --S: min(116vw, calc((var(--h) - var(--unten) - var(--zeile-unten)) / .7918)); }
+  /* Am Handy noch kleiner, ohne Pfeil, wie Vormerken in der Leiste */
+  .einstieg-ecke .knopf-umriss { height: 40px; padding: 0 14px; font-size: 14px; }
+  .einstieg-ecke .knopf-umriss .pfeil { display: none; }
+  .v-was { flex: 1 1 0; min-width: 0; font-size: 14px; }
+  /* 5: die Zeile unter dem Namen braucht etwa 60 px, unten wird dafür Platz frei */
+  [data-variante="5"] .einstieg { --unten: 36px; }
+  [data-variante="5"] .einstieg-buehne { --zeile-unten: calc(var(--leiste) + 88px + (100vw - 32px) * .145); }
+  [data-variante="5"] .einstieg-kopf .einstieg-ecke { margin: 14px var(--rand) 0; gap: 14px; }
+  [data-variante="6"] .einstieg-ecke { bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+  [data-variante="7"] .einstieg-ecke { gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .v-kerze, .js .einstieg.los .v-kerze { opacity: 1; animation: none; }
+}

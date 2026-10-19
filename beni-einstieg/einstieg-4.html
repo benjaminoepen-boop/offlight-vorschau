@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="de" data-variante="4">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OFF LIGHT · Einstieg 4 Abendlicht</title>
+<meta name="description" content="OFF LIGHT ist eine Box für dein Handy mit einer Kerze auf dem Deckel. Phone off. Light on.">
+<meta name="theme-color" content="#1d1612">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Vorschau beim Teilen; die absolute Adresse des Bilds setzt .github/vorschau-bauen.sh -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OFF LIGHT">
+<meta property="og:title" content="OFF LIGHT · Phone off. Light on.">
+<meta property="og:description" content="OFF LIGHT ist eine Box für dein Handy mit einer Kerze auf dem Deckel.">
+<meta property="og:image" content="https://benjaminoepen-boop.github.io/offlight-vorschau/beni-einstieg/og-bild.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OFF LIGHT Box in Oliv, auf dem Deckel brennt die Kerze">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="schrift/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="schrift/libre-baskerville-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="seite.css?v=a5eb3b8">
+<link rel="stylesheet" href="einstieg-varianten.css">
+<script>document.documentElement.classList.add('js');</script>
+<noscript><style>.vormerken, .vk-hinweis { display: none; }</style></noscript>
+<script src="geometrie.js?v=a5eb3b8" defer></script>
+<script src="farben.js?v=a5eb3b8" defer></script>
+<script src="buehne.js?v=a5eb3b8" defer></script>
+<script src="seite.js?v=a5eb3b8" defer></script>
+</head>
+<body>
+<!-- OFF LIGHT im Stil von ayocin.com (ATMOS Lamp), seit 15.10.2026 Benis Version: Riesenwortmarke in der Logo-Schrift
+     mit der Box davor, klebende Bühnen mit Hotspot und Karte, nummerierte Kapitel, Vormerken direkt bei der Farbwahl,
+     Laufband mit Flammenmaske, aufgedeckter Fuß. Ebenen und Geometrie der Box, Lichtschieber und Farbbilder
+     stammen aus der ersten Startseite (Tag beni-startseite-2026-10-05). -->
+<header class="leiste" data-ton="dunkel">
+  <a class="marke" href="#oben" aria-label="OFF LIGHT, nach oben">OFF LIGHT</a>
+  <nav class="navi" aria-label="Hauptnavigation">
+    <a href="#momente" data-ziel="momente">Momente</a>
+    <a href="#so-gehts" data-ziel="schritte">So geht’s</a>
+    <a href="#farben" data-ziel="farben">Farben</a>
+    <a href="#die-box" data-ziel="box">Die Box</a>
+    <a href="#fragen" data-ziel="fragen">Fragen</a>
+  </nav>
+  <a class="knopf-umriss" href="#farben">Vormerken<span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v7.5h9"/><path d="M13.5 9.5 17 13l-3.5 3.5"/></svg></span></a>
+  <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="menue" aria-label="Menü öffnen">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path class="mk-zu" d="M5 9h14M5 15h14"/><path class="mk-offen" d="M7 7l10 10M17 7 7 17"/></svg>
+  </button>
+</header>
+<div class="menue" id="menue" hidden>
+  <nav aria-label="Menü">
+    <a href="#momente">Momente</a>
+    <a href="#so-gehts">So geht’s</a>
+    <a href="#farben">Farben</a>
+    <a href="#die-box">Die Box</a>
+    <a href="#fragen">Fragen</a>
+  </nav>
+  <a class="knopf-hell" href="#farben">Vormerken<span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v7.5h9"/><path d="M13.5 9.5 17 13l-3.5 3.5"/></svg></span></a>
+</div>
+
+<main id="inhalt">
+
+  <!-- Einstieg: Riesenwortmarke in der Logo-Schrift, die Box steht davor. Offen schwebt die Kerze vor „LI“. -->
+  <section class="einstieg" id="oben" data-ton="dunkel" aria-labelledby="wortmarke">
+    <div class="v-foto" aria-hidden="true"><img class="v-handy" src="bilder/momente/abend-handy-1536.webp" srcset="bilder/momente/abend-handy-1536.webp 1536w, bilder/momente/abend-handy.webp 3072w" sizes="100vw" alt="" draggable="false"><img class="v-kerze" src="bilder/momente/abend-kerze-1536.webp" srcset="bilder/momente/abend-kerze-1536.webp 1536w, bilder/momente/abend-kerze.webp 3072w" sizes="100vw" alt="" draggable="false"></div>
+    <div class="einstieg-kopf">
+      <h1 class="wortmarke" id="wortmarke" aria-label="OFF LIGHT"><span class="wm-maske" aria-hidden="true"><span class="wm-b">O</span><span class="wm-b">F</span><span class="wm-b">F</span><span class="wm-b wm-leer"> </span><span class="wm-b">L</span><span class="wm-b">I</span><span class="wm-b">G</span><span class="wm-b">H</span><span class="wm-b">T</span></span></h1>
+    </div>
+    <div class="einstieg-buehne" role="button" tabindex="0" aria-pressed="false" aria-label="Box öffnen und schließen">
+      <noscript><img class="standbild" src="ebenen/foto.webp" alt="Die OFF LIGHT Box in Oliv, auf dem Deckel brennt die Kerze"></noscript>
+    </div>
+    <!-- Preis und Vormerken unten rechts wie auf der ersten Startseite; beides führt zur Farbwahl, dort wird vorgemerkt -->
+    <div class="einstieg-ecke">
+      <a class="preis-link" href="#farben">39,90&nbsp;€</a>
+      <a class="knopf-hell" href="#farben">Vormerken<span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v7.5h9"/><path d="M13.5 9.5 17 13l-3.5 3.5"/></svg></span></a>
+    </div>
+    <div class="abdunkeln" aria-hidden="true"></div>
+  </section>
+
+  <!-- 1. Momente: ein Kapitel zum Umschalten. Der Einstieg fährt wie ein Vorhang weg und gibt es frei. -->
+  <section class="momente" data-ton="dunkel" aria-labelledby="momente-titel">
+    <span class="anker" id="momente"></span>
+    <div class="momente-fest">
+      <div class="momente-bild">
+        <div class="m-paar an" data-i="0" data-moment="essen">
+          <img class="m-handy" src="bilder/momente/essen-handy-1536.webp" srcset="bilder/momente/essen-handy-1536.webp 1536w, bilder/momente/essen-handy.webp 3072w" sizes="100vw" alt="" draggable="false">
+          <img class="m-kerze" src="bilder/momente/essen-kerze-1536.webp" srcset="bilder/momente/essen-kerze-1536.webp 1536w, bilder/momente/essen-kerze.webp 3072w" sizes="100vw" alt="" draggable="false">
+        </div>
+        <div class="m-paar" data-i="1" data-moment="lernen">
+          <img class="m-handy" src="bilder/momente/lernen-handy-1536.webp" srcset="bilder/momente/lernen-handy-1536.webp 1536w, bilder/momente/lernen-handy.webp 3072w" sizes="100vw" alt="" draggable="false" loading="lazy">
+          <img class="m-kerze" src="bilder/momente/lernen-kerze-1536.webp" srcset="bilder/momente/lernen-kerze-1536.webp 1536w, bilder/momente/lernen-kerze.webp 3072w" sizes="100vw" alt="" draggable="false" loading="lazy">
+        </div>
+        <div class="m-paar" data-i="2" data-moment="abend">
+          <img class="m-handy" src="bilder/momente/abend-handy-1536.webp" srcset="bilder/momente/abend-handy-1536.webp 1536w, bilder/momente/abend-handy.webp 3072w" sizes="100vw" alt="" draggable="false" loading="lazy">
+          <img class="m-kerze" src="bilder/momente/abend-kerze-1536.webp" srcset="bilder/momente/abend-kerze-1536.webp 1536w, bilder/momente/abend-kerze.webp 3072w" sizes="100vw" alt="" draggable="false" loading="lazy">
+        </div>
+        <div class="abdunkeln" aria-hidden="true"></div>
+      </div>
+      <div class="momente-inhalt">
+        <header class="kapitelkopf">
+          <span class="kk-nr">1.</span>
+          <h2 id="momente-titel">Momente</h2>
+        </header>
+        <div class="m-saetze" id="m-satz" role="tabpanel" aria-labelledby="m-tab-0">
+          <p class="m-satz an" data-i="0"><span class="m-name">Beim Essen.</span> <span class="m-rest">Zeit fürs Gespräch.</span></p>
+          <p class="m-satz" data-i="1" aria-hidden="true"><span class="m-name">Beim Lernen.</span> <span class="m-rest">Seite für Seite.</span></p>
+          <p class="m-satz" data-i="2" aria-hidden="true"><span class="m-name">Am Abend für dich.</span> <span class="m-rest">Bis du die Kerze auspustest.</span></p>
+        </div>
+        <div class="m-karte">
+          <p class="m-karte-kopf">Eine Kerze lang ohne Handy.</p>
+          <div class="m-wahl" role="tablist" aria-label="Moment wählen">
+            <button type="button" role="tab" id="m-tab-0" aria-selected="true" aria-controls="m-satz" tabindex="0" data-i="0">
+              <span class="m-vorschau"><img src="bilder/momente/klein/essen-kerze.webp" width="192" height="192" alt="" draggable="false"></span>
+              <span class="m-tab-text"><span class="m-nr">1.1</span><span class="m-tab-name">Beim Essen</span></span>
+            </button>
+            <button type="button" role="tab" id="m-tab-1" aria-selected="false" aria-controls="m-satz" tabindex="-1" data-i="1">
+              <span class="m-vorschau"><img src="bilder/momente/klein/lernen-kerze.webp" width="192" height="192" alt="" draggable="false"></span>
+              <span class="m-tab-text"><span class="m-nr">1.2</span><span class="m-tab-name">Beim Lernen</span></span>
+            </button>
+            <button type="button" role="tab" id="m-tab-2" aria-selected="false" aria-controls="m-satz" tabindex="-1" data-i="2">
+              <span class="m-vorschau"><img src="bilder/momente/klein/abend-kerze.webp" width="192" height="192" alt="" draggable="false"></span>
+              <span class="m-tab-text"><span class="m-nr">1.3</span><span class="m-tab-name">Am Abend für dich</span></span>
+            </button>
+          </div>
+        </div>
+        <div class="regler">
+          <div class="regler-spur">
+            <span class="regler-fuellung" aria-hidden="true"></span>
+            <span class="regler-text" aria-hidden="true"><span>Schieben für Kerzenlicht</span></span>
+            <div class="regler-griff" role="switch" tabindex="0" aria-checked="false" aria-label="Kerzenlicht statt Handylicht">
+              <svg class="ikon-handy" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.6"/><path d="M10.6 18.4h2.8"/></svg>
+              <svg class="ikon-flamme" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.2c3.4 0 5.7-2.4 5.7-5.6 0-3.7-3.3-5.8-4.2-9.3-.3-1.1-1.5-1.4-2.2-.6-2.1 2.4-4.9 5.3-4.9 9.9 0 3.2 2.2 5.6 5.6 5.6z"/><path d="M12 18.6c1.3 0 2.2-.9 2.2-2.2 0-1.5-1.1-2.4-1.6-3.6-.9 1-2.8 2-2.8 3.8 0 1.2.9 2 2.2 2z"/></svg>
+            </div>
+          </div>
+        </div>
+        <p class="nur-vorlesen" aria-live="polite" data-moment-status></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. So geht’s: klebende Bühne, der Scrollweg führt die Box durch die vier Handgriffe -->
+  <section class="schritte" id="so-gehts" data-ton="dunkel" aria-labelledby="schritte-titel">
+    <header class="kapitelkopf">
+      <span class="kk-nr">2.</span>
+      <h2 id="schritte-titel">So geht’s</h2>
+    </header>
+    <div class="schritte-spur">
+      <div class="schritte-fest">
+        <div class="schritte-buehne" aria-hidden="true"><noscript><img class="standbild" src="ebenen/foto.webp" alt=""></noscript></div>
+        <svg class="sk-linie" aria-hidden="true"><path d=""/></svg>
+        <div class="hotspot" aria-hidden="true"><span class="hs-ring"></span><span class="hs-punkt"></span></div>
+        <div class="schritte-karte">
+          <p class="sk-kopf">Vier Handgriffe, mehr ist es nicht.</p>
+          <div class="sk-nummern">
+            <button type="button" data-nr="1" aria-label="Schritt 1, Kerze abnehmen" aria-current="step">1</button>
+            <button type="button" data-nr="2" aria-label="Schritt 2, Handy hineinlegen">2</button>
+            <button type="button" data-nr="3" aria-label="Schritt 3, Deckel schließen">3</button>
+            <button type="button" data-nr="4" aria-label="Schritt 4, Kerze anzünden">4</button>
+          </div>
+          <div class="sk-fenster" aria-live="polite">
+            <div class="sk-band">
+              <div class="sk-schritt" data-nr="1"><p class="sk-etikett">2.1</p><h3>Kerze abnehmen</h3><p class="sk-satz">Die Kerze steht lose in der Mulde im Deckel. Du hebst sie einfach ab.</p></div>
+              <div class="sk-schritt" data-nr="2"><p class="sk-etikett">2.2</p><h3>Handy hineinlegen</h3><p class="sk-satz">Dein Handy liegt auf einem weichen Einsatz aus Samt. Der Bildschirm darf ruhig noch leuchten.</p></div>
+              <div class="sk-schritt" data-nr="3"><p class="sk-etikett">2.3</p><h3>Deckel schließen</h3><p class="sk-satz">Der Deckel liegt satt auf. Was jetzt noch aufleuchtet, sieht niemand.</p></div>
+              <div class="sk-schritt" data-nr="4"><p class="sk-etikett">2.4</p><h3>Kerze anzünden</h3><p class="sk-satz">Stell die Kerze zurück auf den Deckel und zünde sie an. Wer jetzt ans Handy will, muss erst die Kerze auspusten.</p></div>
+            </div>
+          </div>
+          <div class="sk-fortschritt" aria-hidden="true"><span></span></div>
+        </div>
+        <div class="abdunkeln" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vier Farben. Eine Flamme. Das Produkt steht frei auf der Nacht. In der Farbkarte wird gleich vorgemerkt:
+       Farbe wählen, E-Mail-Adresse, Vormerken. -->
+  <section class="farben" id="farben" data-ton="dunkel" aria-labelledby="farben-titel">
+    <div class="farben-fest">
+      <h2 class="superzeile" id="farben-titel"><span class="sz">Vier Farben.</span> <span class="sz">Eine <span class="flamme-wort">Flamme.</span></span></h2>
+      <div class="produkt-buehne" role="img" aria-label="OFF LIGHT in Oliv, die Kerze auf dem Deckel brennt">
+        <div class="produkt-licht">
+          <div class="produkt-szene"><img class="p-aus" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""><img class="p-schein licht" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""><img class="p-flamme licht" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></div>
+          <div class="produkt-szene"><img class="p-aus" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""><img class="p-schein licht" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""><img class="p-flamme licht" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></div>
+          <noscript><div class="produkt-szene"><img class="p-aus" src="bilder/farben/oliv-aus.webp" alt=""></div></noscript>
+        </div>
+      </div>
+      <div class="farbkarte">
+        <p class="fk-titel" id="fk-titel">Farbe <span data-farbname>Oliv</span></p>
+        <div class="muster" role="radiogroup" aria-labelledby="fk-titel">
+          <button type="button" class="farbe" role="radio" aria-checked="true" tabindex="0" data-farbe="oliv" data-name="Oliv" aria-label="Oliv" style="--muster: url(bilder/muster/oliv.webp), #4b4b31"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="bordeaux" data-name="Bordeaux" aria-label="Bordeaux" style="--muster: url(bilder/muster/bordeaux.webp), #62272a"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="nachtblau" data-name="Nachtblau" aria-label="Nachtblau" style="--muster: url(bilder/muster/nachtblau.webp), #25324f"></button>
+          <button type="button" class="farbe" role="radio" aria-checked="false" tabindex="-1" data-farbe="anthrazit" data-name="Anthrazit" aria-label="Anthrazit" style="--muster: url(bilder/muster/anthrazit.webp), #3b3d3f"></button>
+        </div>
+        <p class="fk-entwurf">Die Farben sind noch ein Entwurf.</p>
+        <div class="fk-preis-zeile"><span>Box und Kerze</span><strong class="fk-preis">39,90&nbsp;€</strong></div>
+        <form class="vormerken" method="post" action="#farben" novalidate>
+          <input type="hidden" name="farbe" value="oliv">
+          <label class="nur-vorlesen" for="fk-email">E-Mail-Adresse</label>
+          <input id="fk-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="E-Mail-Adresse" aria-describedby="fk-meldung fk-hinweis" required>
+          <button class="knopf-hell" type="submit">Vormerken<span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v7.5h9"/><path d="M13.5 9.5 17 13l-3.5 3.5"/></svg></span></button>
+          <p class="vk-meldung" id="fk-meldung" data-meldung aria-live="polite"></p>
+        </form>
+        <p class="vk-hinweis" id="fk-hinweis">Noch nicht lieferbar. Wir schreiben dir, sobald es losgeht. <a href="datenschutz.html#vormerken">Datenschutz</a></p>
+        <noscript><p class="fk-entwurf">Zum Vormerken bitte JavaScript einschalten.</p></noscript>
+      </div>
+      <div class="farben-text">
+        <h3>Wähl die Farbe deiner Box.</h3>
+        <p>Oliv, Bordeaux, Nachtblau oder Anthrazit.</p>
+      </div>
+      <div class="abdunkeln" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 3. Die Box: die eine helle Strecke beginnt, sie schiebt sich über das Ende des Farbabschnitts -->
+  <section class="kapitel-box hell" id="die-box" data-ton="hell" aria-labelledby="box-titel">
+    <header class="kapitelkopf" data-steigt>
+      <span class="kk-nr"><span class="zeile"><span>3.</span></span></span>
+      <h2 id="box-titel"><span class="zeile"><span>Die Box</span></span></h2>
+    </header>
+    <div class="box-inhalt">
+      <div class="box-links">
+        <h3 class="h4" data-zeilen>Keine App, kein Akku. Nur Papier, Samt, Glas und Wachs.</h3>
+        <ol class="buchstaben">
+          <li data-steigt style="--i: 0"><span class="kreis" aria-hidden="true">A</span><p><strong>Schloss.</strong> Solange die Kerze brennt, bleibt die Box zu. Wer ans Handy will, pustet sie erst aus.</p></li>
+          <li data-steigt style="--i: 1"><span class="kreis" aria-hidden="true">B</span><p><strong>Zeitmaß.</strong> Die Kerze zeigt, wie lange der Abend schon dauert. Kein Timer, nichts einzustellen.</p></li>
+          <li data-steigt style="--i: 2"><span class="kreis" aria-hidden="true">C</span><p><strong>Stimmung.</strong> Warmes Licht auf dem Tisch statt kaltem Licht in der Hand.</p></li>
+        </ol>
+      </div>
+      <figure class="box-bild">
+        <img src="bilder/box/box-offen.webp" width="1600" height="1600" alt="Die offene OFF LIGHT Box in Oliv: Kerze und Deckel schweben über dem Unterteil, darin liegt das Handy auf Samt" loading="lazy" draggable="false">
+      </figure>
+      <div class="box-zahlen">
+        <dl>
+          <div class="zahl" data-steigt style="--i: 0"><dt>Box außen in cm</dt><dd>24 × 12 × 6,5</dd></div>
+          <div class="zahl" data-steigt style="--i: 1"><dt>Handy mit Hülle</dt><dd>bis 17 cm</dd></div>
+          <div class="zahl" data-steigt style="--i: 2"><dt>Brenndauer</dt><dd>etwa 25 Std.</dd></div>
+          <div class="zahl" data-steigt style="--i: 3"><dt>Sojawachs</dt><dd>120 g</dd></div>
+        </dl>
+        <p class="etikett">Maße, Werte und Material sind vorläufig.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Fragen: alle Antworten offen, Nummer, Frage und Antwort im Raster der Seite -->
+  <section class="fragen hell" id="fragen" data-ton="hell" aria-labelledby="fragen-titel">
+    <header class="kapitelkopf" data-steigt>
+      <span class="kk-nr"><span class="zeile"><span>4.</span></span></span>
+      <h2 id="fragen-titel"><span class="zeile"><span>Fragen</span></span></h2>
+    </header>
+    <div class="fragen-liste">
+      <article class="frage" data-steigt style="--i: 0">
+        <span class="f-nr" aria-hidden="true">4.1</span>
+        <h3>Wann kann ich OFF&nbsp;LIGHT bestellen?</h3>
+        <p>Noch nicht. Merk dich vor, dann schreiben wir dir, sobald es losgeht. Einen Liefertermin gibt es noch nicht.</p>
+      </article>
+      <article class="frage" data-steigt style="--i: 1">
+        <span class="f-nr" aria-hidden="true">4.2</span>
+        <h3>Passt mein Handy hinein?</h3>
+        <p>Geplant ist Platz für Handys bis 17 cm Länge, auch mit Hülle. Die Box misst außen etwa 24&#8239;×&#8239;12&#8239;×&#8239;6,5&nbsp;cm. Beides ist noch vorläufig.</p>
+      </article>
+      <article class="frage" data-steigt style="--i: 2">
+        <span class="f-nr" aria-hidden="true">4.3</span>
+        <h3>Wie lange brennt eine Kerze?</h3>
+        <p>Geplant sind etwa 25 Stunden mit 120 g Sojawachs, Baumwolldocht und satiniertem Glas. Gemessen ist das noch nicht.</p>
+      </article>
+      <article class="frage" data-steigt style="--i: 3">
+        <span class="f-nr" aria-hidden="true">4.4</span>
+        <h3>Lässt sich die Box abschließen?</h3>
+        <p>Nein. Das Schloss ist die brennende Kerze auf dem Deckel. Wer ans Handy will, pustet sie erst aus. Wann du das tust, entscheidest du.</p>
+      </article>
+      <article class="frage" data-steigt style="--i: 4">
+        <span class="f-nr" aria-hidden="true">4.5</span>
+        <h3>Was ist im Paket?</h3>
+        <p>Geplant sind die Box mit Samteinsatz und eine Kerze. Ob es Nachfüllkerzen gibt, ist noch offen.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PHONE OFF. LIGHT ON.: aus der Mitte des Laufbands wächst eine Flamme, durch sie scheint das Kerzenfoto
+       (Bild 1 und 2 aus BILDAUFTRAG_AYOCIN.md). Darin geht die Kerze an, danach kommt die schlanke Vormerkkarte:
+       nur E-Mail-Adresse, die Farbe kommt aus der Farbwahl weiter oben. -->
+  <section class="finale" data-ton="hell" aria-labelledby="vormerken-titel">
+    <span class="anker" id="vormerken"></span>
+    <div class="finale-fest">
+      <div class="band" aria-hidden="true"><div class="band-lauf" lang="en"><span>Phone off. Light on.</span><span>Phone off. Light on.</span><span>Phone off. Light on.</span></div></div>
+      <div class="finale-foto">
+        <div class="finale-bild" aria-hidden="true">
+          <img class="fb-aus" src="bilder/finale/kerze-nah-aus-1536.webp" srcset="bilder/finale/kerze-nah-aus-1536.webp 1536w, bilder/finale/kerze-nah-aus.webp 3072w" sizes="160vw" width="1536" height="1024" alt="" loading="lazy" draggable="false">
+          <img class="fb-an" src="bilder/finale/kerze-nah-an-1536.webp" srcset="bilder/finale/kerze-nah-an-1536.webp 1536w, bilder/finale/kerze-nah-an.webp 3072w" sizes="160vw" width="1536" height="1024" alt="" loading="lazy" draggable="false">
+        </div>
+      </div>
+      <div class="vormerkkarte">
+        <h2 id="vormerken-titel">Merk dir deine Box vor.</h2>
+        <p class="vk-satz">Box und Kerze in <span data-farbname>Oliv</span>, 39,90&nbsp;€. <a class="fk-link" href="#farben">Farbe ändern</a></p>
+        <form class="vormerken" method="post" action="#vormerken" novalidate>
+          <input type="hidden" name="farbe" value="oliv">
+          <label class="nur-vorlesen" for="vk-email">E-Mail-Adresse</label>
+          <input id="vk-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="E-Mail-Adresse" aria-describedby="vk-meldung vk-hinweis" required>
+          <button class="knopf-hell" type="submit">Vormerken<span class="pfeil" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v7.5h9"/><path d="M13.5 9.5 17 13l-3.5 3.5"/></svg></span></button>
+          <p class="vk-meldung" id="vk-meldung" data-meldung aria-live="polite"></p>
+        </form>
+        <p class="vk-hinweis" id="vk-hinweis">Noch nicht lieferbar. Wir schreiben dir, sobald es losgeht. <a href="datenschutz.html#vormerken">Datenschutz</a></p>
+        <noscript><p class="vk-satz">Zum Vormerken bitte JavaScript einschalten.</p></noscript>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss" data-ton="dunkel">
+  <div class="fuss-raster">
+    <div class="fs-spalte fs-marke">
+      <p class="fs-kopf">OFF LIGHT</p>
+      <p class="fs-claim" lang="en">Phone off. Light on.</p>
+      <p class="fs-satz">Die Kerzenbox für dein Handy. Noch nicht lieferbar.</p>
+    </div>
+    <div class="fs-spalte">
+      <p class="fs-kopf">Kontakt</p>
+      <p><span class="luecke">E-Mail-Adresse folgt</span></p>
+    </div>
+    <nav class="fs-spalte" aria-label="Seite">
+      <p class="fs-kopf">Seite</p>
+      <a href="#momente">Momente</a>
+      <a href="#so-gehts">So geht’s</a>
+      <a href="#farben">Farben</a>
+      <a href="#die-box">Die Box</a>
+      <a href="#fragen">Fragen</a>
+    </nav>
+    <nav class="fs-spalte" aria-label="Rechtliches">
+      <p class="fs-kopf">Rechtliches</p>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+  <div class="fs-unten">
+    <span>© 2026 OFF LIGHT</span>
+    <a href="#oben">Nach oben</a>
+  </div>
+</footer>
+
+</body>
+</html>
