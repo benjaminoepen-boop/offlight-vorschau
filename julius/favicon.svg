@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Flamme aus dem Griff des Lichtschiebers (index.html), auf Fotonacht -->
+  <rect width="32" height="32" rx="7" fill="#1d1612"/>
+  <g transform="translate(16 16.6) scale(1.34) translate(-12.3 -13.3)">
+    <path fill="#eea04a" d="M12 21.2c3.4 0 5.7-2.4 5.7-5.6 0-3.7-3.3-5.8-4.2-9.3-.3-1.1-1.5-1.4-2.2-.6-2.1 2.4-4.9 5.3-4.9 9.9 0 3.2 2.2 5.6 5.6 5.6z"/>
+    <path fill="#fbd9a1" d="M12 18.6c1.3 0 2.2-.9 2.2-2.2 0-1.5-1.1-2.4-1.6-3.6-.9 1-2.8 2-2.8 3.8 0 1.2.9 2 2.2 2z"/>
+  </g>
+</svg>
